@@ -1,0 +1,5 @@
+/target/
+/wasm/*.wasm
+/wasm/*.download
+/fixtures/*.json
+!/fixtures/*.template.json

@@ -51,3 +51,7 @@ stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainn
 stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainnet -- enable_protocol --protocol AquaConcentrated --enabled true
 stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainnet -- enable_protocol --protocol Sushiswap --enabled true
 ```
+
+## Sushi integration tests
+
+[Real-pool Sushi regressions](integration-tests/sushi/README.md) build the current broker and replay both swap directions plus minimum-output rollback on frozen mainnet state. Initial setup fetches pinned dependency WASMs; replay is offline.
