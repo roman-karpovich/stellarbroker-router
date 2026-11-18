@@ -51,7 +51,3 @@ stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainn
 stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainnet -- enable_protocol --protocol AquaConcentrated --enabled true
 stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainnet -- enable_protocol --protocol Sushiswap --enabled true
 ```
-
-## Sushi integration tests
-
-The [Kanatoko example](integration-tests/sushi/README.md) compares the broker’s output with Sushi’s quote for 1 XLM and 1 USDC, then checks what happens when the minimum is one unit too high.
