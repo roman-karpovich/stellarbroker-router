@@ -54,4 +54,4 @@ stellar contract invoke --id <DEPLOYED_ADDRESS> --source <admin> --network mainn
 
 ## Sushi integration tests
 
-[Real-pool Sushi regressions](integration-tests/sushi/README.md) build the current broker and replay both swap directions plus minimum-output rollback on frozen mainnet state. Initial setup fetches pinned dependency WASMs; replay is offline.
+The [Kanatoko example](integration-tests/sushi/README.md) compares the broker’s output with Sushi’s quote for 1 XLM and 1 USDC, then checks what happens when the minimum is one unit too high.

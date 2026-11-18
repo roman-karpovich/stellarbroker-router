@@ -1,6 +1,6 @@
 use kanatoko::soroban_env_host::xdr::ScError;
 use kanatoko::soroban_sdk::{token::TokenClient, vec, Address, Bytes, Vec, U256};
-use kanatoko::{mainnet, AutoRunner, ScenarioFork};
+use kanatoko::{mainnet, ScenarioFork};
 
 mod broker {
     use kanatoko::soroban_sdk;
@@ -21,16 +21,7 @@ const XLM: &str = "CAS3J7GYLGXMF6TDJBBYYSE3HQ6BBSMLNUQ34T6TZMYMW2EVH34XOWMA";
 const USDC: &str = "CCW67TSZV3SSS2HXMBQ5JFGCKJNXKZM7UQUWUZPUTHXSTZLEO7SJMI75";
 const AMOUNT: i128 = 10_000_000;
 
-fn runner(name: &str) -> AutoRunner {
-    let runner = mainnet().cache(format!(
-        "{}/fixtures/{name}.json",
-        env!("CARGO_MANIFEST_DIR")
-    ));
-    match std::env::var("KANATOKO_CAPTURE_RPC") {
-        Ok(url) => runner.rpc_url(url).rpc_rate_limit(1).refresh(),
-        Err(_) => runner.offline(),
-    }
-}
+mod fixture;
 
 struct Setup {
     trader: Address,
@@ -115,7 +106,7 @@ fn routes(fork: &ScenarioFork<'_>, p: &Setup, minimum: i128) -> Vec<broker::Rout
     ]
 }
 
-fn scenario(fork: &ScenarioFork<'_>, zero_for_one: bool) {
+fn scenario(fork: &ScenarioFork<'_>, zero_for_one: bool, captured_quote: i128) {
     let p = setup(fork, zero_for_one);
     let pool = sushi::Client::new(fork.env(), &p.pool);
     let before = balances(fork, &p);
@@ -149,12 +140,7 @@ fn scenario(fork: &ScenarioFork<'_>, zero_for_one: bool) {
         },
         AMOUNT
     );
-    assert!(output > 0);
-    assert_ne!(
-        output,
-        AMOUNT * 99 / 100,
-        "real pool must not reproduce the fixed-rate mock"
-    );
+    assert_eq!(output, captured_quote, "quote from the recorded Sushi pool");
     assert_eq!(balances(fork, &p), before);
     assert_eq!(pool.slot0(), slot_before);
 
@@ -209,19 +195,30 @@ fn scenario(fork: &ScenarioFork<'_>, zero_for_one: bool) {
     } else {
         assert!(sqrt_after > slot_before.sqrt_price_x96);
     }
-    println!("zero_for_one={zero_for_one}, input={AMOUNT}, output={output}");
+    let direction = if zero_for_one {
+        "XLM -> USDC"
+    } else {
+        "USDC -> XLM"
+    };
+    println!("{direction}: input {AMOUNT}, pool quote {captured_quote}, broker output {output} (raw units)");
 }
 
 #[test]
 fn sushi_xlm_to_usdc_checks_exact_output_rollback_and_retry() {
-    runner("xlm-to-usdc")
-        .run(|fork| scenario(fork, true))
+    let snapshot = fixture::restore(include_str!("../fixtures/xlm-to-usdc.template.json"));
+    mainnet()
+        .cache(snapshot.path())
+        .offline()
+        .run(|fork| scenario(fork, true, 1_406_480))
         .unwrap();
 }
 
 #[test]
 fn sushi_usdc_to_xlm_checks_exact_output_rollback_and_retry() {
-    runner("usdc-to-xlm")
-        .run(|fork| scenario(fork, false))
+    let snapshot = fixture::restore(include_str!("../fixtures/usdc-to-xlm.template.json"));
+    mainnet()
+        .cache(snapshot.path())
+        .offline()
+        .run(|fork| scenario(fork, false, 70_673_427))
         .unwrap();
 }
