@@ -1,9 +1,9 @@
 {
   "schema_version": 2,
   "ledger_snapshot": {
-    "protocol_version": 29,
-    "sequence_number": 65534398,
-    "timestamp": 1794958032,
+    "protocol_version": 30,
+    "sequence_number": 65646132,
+    "timestamp": 1795516712,
     "network_id": "7ac33997544e3175d266bd022439b22cdb16508c01163f26e5cb2a3e1045a979",
     "base_reserve": 5000000,
     "min_persistent_entry_ttl": 2073600,
@@ -12,11 +12,11 @@
     "ledger_entries": [
       {
         "entry": {
-          "last_modified_ledger_seq": 65287496,
+          "last_modified_ledger_seq": 65578556,
           "data": {
             "account": {
               "account_id": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
-              "balance": "321099354850",
+              "balance": "321182208225",
               "seq_num": "144373126631784461",
               "num_sub_entries": 6,
               "inflation_dest": null,
@@ -76,7 +76,7 @@
       },
       {
         "entry": {
-          "last_modified_ledger_seq": 65534223,
+          "last_modified_ledger_seq": 65646118,
           "data": {
             "contract_data": {
               "ext": "v0",
@@ -99,7 +99,7 @@
                       "symbol": "amount"
                     },
                     "val": {
-                      "i128": "26450694755804"
+                      "i128": "29504484646660"
                     }
                   },
                   {
@@ -124,7 +124,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 66042399
+        "live_until": 66147345
       },
       {
         "entry": {
@@ -195,7 +195,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 68638104
+        "live_until": 68745049
       },
       {
         "entry": {
@@ -357,7 +357,7 @@
       },
       {
         "entry": {
-          "last_modified_ledger_seq": 65534223,
+          "last_modified_ledger_seq": 65646118,
           "data": {
             "contract_data": {
               "ext": "v0",
@@ -381,7 +381,7 @@
                               "symbol": "balance0"
                             },
                             "val": {
-                              "i128": "26450694755804"
+                              "i128": "29504484646660"
                             }
                           },
                           {
@@ -389,7 +389,7 @@
                               "symbol": "balance1"
                             },
                             "val": {
-                              "i128": "1831885514047"
+                              "i128": "1437401382675"
                             }
                           }
                         ]
@@ -481,7 +481,7 @@
                             "val": {
                               "vec": [
                                 {
-                                  "u256": "19822852941102394650301708559380650499"
+                                  "u256": "20549272866572316883338208517767693934"
                                 }
                               ]
                             }
@@ -493,7 +493,7 @@
                             "val": {
                               "vec": [
                                 {
-                                  "u256": "3738614810012443352734487796412197598"
+                                  "u256": "3819815556658707084613071878428732527"
                                 }
                               ]
                             }
@@ -503,7 +503,7 @@
                               "symbol": "liquidity"
                             },
                             "val": {
-                              "u128": "22084520668239"
+                              "u128": "22083489412507"
                             }
                           },
                           {
@@ -517,7 +517,7 @@
                                     "symbol": "token0"
                                   },
                                   "val": {
-                                    "u128": "528462768847"
+                                    "u128": "544177362408"
                                   }
                                 },
                                 {
@@ -525,7 +525,7 @@
                                     "symbol": "token1"
                                   },
                                   "val": {
-                                    "u128": "94887434830"
+                                    "u128": "96644042559"
                                   }
                                 }
                               ]
@@ -542,7 +542,7 @@
                                     "symbol": "sqrt_price_x96"
                                   },
                                   "val": {
-                                    "u256": "29757663321084004391909178863"
+                                    "u256": "28317222757600198448043016710"
                                   }
                                 },
                                 {
@@ -550,7 +550,7 @@
                                     "symbol": "tick"
                                   },
                                   "val": {
-                                    "i32": -19586
+                                    "i32": -20579
                                   }
                                 }
                               ]
@@ -602,7 +602,7 @@
                               "symbol": "ledger_sequence"
                             },
                             "val": {
-                              "u32": 65534223
+                              "u32": 65646118
                             }
                           },
                           {
@@ -612,7 +612,7 @@
                             "val": {
                               "vec": [
                                 {
-                                  "u256": "33688340221497240598659147341091087929356"
+                                  "u256": "33688340230118130297144413356549138044399"
                                 }
                               ]
                             }
@@ -622,7 +622,7 @@
                               "symbol": "tick"
                             },
                             "val": {
-                              "i32": -19592
+                              "i32": -20576
                             }
                           },
                           {
@@ -630,7 +630,7 @@
                               "symbol": "tick_cumulative"
                             },
                             "val": {
-                              "i64": "-388287338006"
+                              "i64": "-399639615796"
                             }
                           },
                           {
@@ -638,7 +638,7 @@
                               "symbol": "timestamp"
                             },
                             "val": {
-                              "u64": "1794957157"
+                              "u64": "1795516642"
                             }
                           }
                         ]
@@ -659,7 +659,7 @@
                               "symbol": "checkpoint_count"
                             },
                             "val": {
-                              "u32": 9585
+                              "u32": 9904
                             }
                           },
                           {
@@ -667,7 +667,7 @@
                               "symbol": "last_checkpoint_index"
                             },
                             "val": {
-                              "u32": 65534134
+                              "u32": 65646031
                             }
                           },
                           {
@@ -675,7 +675,7 @@
                               "symbol": "last_observation_ledger"
                             },
                             "val": {
-                              "u32": 65534223
+                              "u32": 65646118
                             }
                           }
                         ]
@@ -688,11 +688,11 @@
           },
           "ext": "v0"
         },
-        "live_until": 68604273
+        "live_until": 68725484
       },
       {
         "entry": {
-          "last_modified_ledger_seq": 65534223,
+          "last_modified_ledger_seq": 65646118,
           "data": {
             "contract_data": {
               "ext": "v0",
@@ -715,7 +715,7 @@
                       "symbol": "amount"
                     },
                     "val": {
-                      "i128": "1831885514047"
+                      "i128": "1437401382675"
                     }
                   },
                   {
@@ -740,7 +740,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 66042399
+        "live_until": 66147345
       },
       {
         "entry": {
@@ -843,7 +843,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 68033878
+        "live_until": 68213789
       },
       {
         "entry": {
@@ -1014,7 +1014,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 68589761
+        "live_until": 68710749
       },
       {
         "entry": {
@@ -1045,7 +1045,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 68552720
+        "live_until": 68673701
       },
       {
         "entry": {
@@ -1076,7 +1076,7 @@
           },
           "ext": "v0"
         },
-        "live_until": 68589761
+        "live_until": 68710749
       },
       {
         "entry": {
@@ -1129,11 +1129,11 @@
   "provenance": {
     "rpc_origin": "https://mainnet.sorobanrpc.com",
     "network_passphrase": "Public Global Stellar Network ; September 2015",
-    "ledger_sequence": 65534398,
-    "ledger_hash": "e5858b1cccdcd20af7fdcbc3fae368a6097f1a1a511d7890340ca345ee070fa2",
-    "protocol_version": 29
+    "ledger_sequence": 65646132,
+    "ledger_hash": "45ba7693710d9961ef7cae5b0d0c3ff9f1a6871157aa88e4c4010306e918c111",
+    "protocol_version": 30
   },
-  "ledger_digest": "ee656095dc584122ef258094375a844ab97401dddcc4d2263f98a4511ee7e886",
-  "inventory_digest": "b71502c61f9a852a7e2223a504596ba87747861e2596cb2d1eaafb348be26c7b",
-  "canonical_digest": "274a53b3fddfd4c2c502d954f9da08867c0d4483b089d5cd11fe73cd7cce78d3"
+  "ledger_digest": "95d78648d336b190219f41248434fa403a19ac5a31f40fb3f77058d64e804e18",
+  "inventory_digest": "1272135ed390cf23a7682c3f7639699474bcd5d20a5398aa6254a6e8bcdd4018",
+  "canonical_digest": "aaec29174f24257e1add55724684180898d8556957e1172e6ca28cfafc4a2a25"
 }

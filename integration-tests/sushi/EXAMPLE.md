@@ -1,11 +1,11 @@
 # Sushi swaps through StellarBroker
 
-The existing pool mock pays 99% of the input. This example builds StellarBroker from this checkout and uses [Kanatoko](https://crates.io/crates/kanatoko) to run it against the Sushi XLM/USDC pool at two recorded mainnet ledgers. The expected amount and final pool price come from Sushi’s own `quote_exact_input`.
+The existing pool mock pays 99% of the input. This example builds StellarBroker from this checkout and uses [Kanatoko](https://crates.io/crates/kanatoko) to run it against the Sushi XLM/USDC pool at two recorded Protocol 30 mainnet ledgers. The expected amount and final pool price come from Sushi’s own `quote_exact_input`.
 
 | Swap | Mainnet ledger | Pool quote | Trader received |
 | --- | ---: | ---: | ---: |
-| 1 XLM → USDC | 65534398 | 0.1406480 USDC | 0.1406480 USDC |
-| 1 USDC → XLM | 65534393 | 7.0673427 XLM | 7.0673427 XLM |
+| 1 XLM → USDC | 65646132 | 0.1273612 USDC | 0.1273612 USDC |
+| 1 USDC → XLM | 65646130 | 7.8046325 XLM | 7.8046325 XLM |
 
 For each direction, the test asks for one unit more than the quote. The broker rejects with error 32712. Trader, broker and pool balances, `slot0`, liquidity and oracle hints match their values before the call. A retry at the quote settles with the quoted final price and zero tokens left at the broker. The broker fee is zero and account authorization is mocked locally.
 

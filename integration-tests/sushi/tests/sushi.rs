@@ -209,7 +209,7 @@ fn sushi_xlm_to_usdc_checks_exact_output_rollback_and_retry() {
     mainnet()
         .cache(snapshot.path())
         .offline()
-        .run(|fork| scenario(fork, true, 1_406_480))
+        .run(|fork| scenario(fork, true, 1_273_612))
         .unwrap();
 }
 
@@ -219,6 +219,6 @@ fn sushi_usdc_to_xlm_checks_exact_output_rollback_and_retry() {
     mainnet()
         .cache(snapshot.path())
         .offline()
-        .run(|fork| scenario(fork, false, 70_673_427))
+        .run(|fork| scenario(fork, false, 78_046_325))
         .unwrap();
 }
